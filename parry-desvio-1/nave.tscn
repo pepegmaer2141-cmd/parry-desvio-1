@@ -6,14 +6,20 @@
 radius = 30.0
 
 [node name="nave" type="CharacterBody2D"]
+metadata/_edit_group_ = true
 
 [node name="PixilFrame0" type="Sprite2D" parent="."]
 position = Vector2(-0.046150208, -8.069159e-09)
 rotation = 6.2831855
 scale = Vector2(0.999077, 1)
 texture = ExtResource("1_ltewx")
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_ilgfq")
+metadata/_edit_group_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CollisionShape2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+metadata/_edit_group_ = true
