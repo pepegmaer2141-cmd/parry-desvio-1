@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://ssvfnwe62cc3"]
+
+[ext_resource type="Texture2D" uid="uid://cfx8mi0beusxs" path="res://asssets/pixil-frame-0 (1).png" id="1_obrw4"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_j5r06"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_obrw4"]
+radius = 46.0
+
+[node name="pelotitas" type="CharacterBody2D"]
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_obrw4")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="Sprite2D"]
+mass = 0.001
+physics_material_override = SubResource("PhysicsMaterial_j5r06")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/RigidBody2D"]
+shape = SubResource("CircleShape2D_obrw4")
