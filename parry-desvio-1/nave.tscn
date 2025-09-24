@@ -11,6 +11,8 @@ radius = 292.0017
 size = Vector2(39.856, 24)
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ilgfq"]
+friction = 0.0
+bounce = 1.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_j1vys"]
 radius = 40.112343
@@ -20,7 +22,7 @@ position = Vector2(257, -251)
 metadata/_edit_vertical_guides_ = [-360.0]
 
 [node name="circulo exterior" type="StaticBody2D" parent="."]
-position = Vector2(-167, 608)
+position = Vector2(-229, 531)
 collision_layer = 3
 collision_mask = 2
 metadata/_edit_group_ = true
@@ -58,11 +60,12 @@ scale = Vector2(1.0009239, 1)
 metadata/_edit_group_ = true
 
 [node name="balas" type="RigidBody2D" parent="."]
-position = Vector2(-143, 169)
+position = Vector2(-259, -65)
 collision_layer = 3
 mass = 0.001
 physics_material_override = SubResource("PhysicsMaterial_ilgfq")
-gravity_scale = 0.208
+gravity_scale = 0.0
+linear_velocity = Vector2(0, 1000)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="balas"]
