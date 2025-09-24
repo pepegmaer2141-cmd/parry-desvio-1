@@ -7,7 +7,7 @@ friction = 0.0
 bounce = 1.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_obrw4"]
-radius = 46.0
+radius = 37.0
 
 [node name="pelotitas" type="CharacterBody2D"]
 metadata/_edit_group_ = true

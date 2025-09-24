@@ -1,57 +1,72 @@
-[gd_scene load_steps=5 format=3 uid="uid://bcbbmjt4uth7y"]
+[gd_scene load_steps=8 format=3 uid="uid://bcbbmjt4uth7y"]
 
+[ext_resource type="Texture2D" uid="uid://c3p3cpfv6sqea" path="res://asssets/circulo.png" id="1_j1vys"]
 [ext_resource type="Texture2D" uid="uid://flqulg0gjkvk" path="res://asssets/pixil-frame-0.png" id="1_ltewx"]
 [ext_resource type="Texture2D" uid="uid://cfx8mi0beusxs" path="res://asssets/pixil-frame-0 (1).png" id="2_ilgfq"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ilgfq"]
-size = Vector2(39.856, 24)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ltewx"]
 radius = 292.0017
 
-[node name="nave" type="CharacterBody2D"]
-disable_mode = 2
-motion_mode = 1
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ilgfq"]
+size = Vector2(39.856, 24)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ilgfq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j1vys"]
+radius = 40.112343
+
+[node name="juego" type="Node2D"]
+position = Vector2(257, -251)
+metadata/_edit_vertical_guides_ = [-360.0]
+
+[node name="circulo exterior" type="StaticBody2D" parent="."]
+position = Vector2(-166, 642)
+collision_layer = 3
+collision_mask = 2
 metadata/_edit_group_ = true
 
-[node name="PixilFrame0" type="Sprite2D" parent="."]
-visible = false
+[node name="Sprite2D" type="Sprite2D" parent="circulo exterior"]
+position = Vector2(3.5000238, 1.9999926)
+scale = Vector2(6.0100007, 6.0399995)
+texture = ExtResource("1_j1vys")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="circulo exterior"]
+position = Vector2(-1, 0)
+shape = SubResource("CircleShape2D_ltewx")
+debug_color = Color(0.9444711, 0.12229853, 0.509616, 0.41960785)
+
+[node name="Area2D" type="Area2D" parent="circulo exterior"]
+
+[node name="nave" type="Sprite2D" parent="."]
 top_level = true
-position = Vector2(2.4504943, 4.2845804e-07)
-rotation = 6.2831855
+position = Vector2(-61.000004, -82)
 scale = Vector2(1.0490099, 1)
 texture = ExtResource("1_ltewx")
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PixilFrame0"]
-visible = false
-position = Vector2(0.10927653, -2.3849736e-08)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="nave"]
+position = Vector2(-0.42944705, -3.4969113e-07)
 scale = Vector2(1.0009239, 1)
 shape = SubResource("RectangleShape2D_ilgfq")
 metadata/_edit_group_ = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="PixilFrame0/CollisionShape2D"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="nave/CollisionShape2D"]
 
-[node name="Camera2D" type="Camera2D" parent="PixilFrame0"]
-visible = false
+[node name="Camera2D" type="Camera2D" parent="nave"]
 position = Vector2(0.046195984, 0)
 scale = Vector2(1.0009239, 1)
 metadata/_edit_group_ = true
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-visible = false
-position = Vector2(-1, 0)
-collision_layer = 2
-collision_mask = 2
+[node name="balas" type="RigidBody2D" parent="."]
+position = Vector2(-143, 169)
+collision_layer = 3
+mass = 0.001
+physics_material_override = SubResource("PhysicsMaterial_ilgfq")
+gravity_scale = 0.208
 metadata/_edit_group_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
-position = Vector2(3.5000238, 1.9999926)
-scale = Vector2(6.0100007, 6.0399995)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="balas"]
+shape = SubResource("CircleShape2D_j1vys")
+
+[node name="Sprite2D" type="Sprite2D" parent="balas"]
 texture = ExtResource("2_ilgfq")
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-shape = SubResource("CircleShape2D_ltewx")
-debug_color = Color(0.9444711, 0.12229853, 0.509616, 0.41960785)
-metadata/_edit_group_ = true
