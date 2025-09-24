@@ -1,11 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://bcbbmjt4uth7y"]
+[gd_scene load_steps=4 format=3 uid="uid://bcbbmjt4uth7y"]
 
 [ext_resource type="Texture2D" uid="uid://flqulg0gjkvk" path="res://asssets/pixil-frame-0.png" id="1_ltewx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ilgfq"]
 radius = 30.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_ltewx"]
+radius = 292.0017
+
 [node name="nave" type="CharacterBody2D"]
+position = Vector2(-2, 0)
 metadata/_edit_group_ = true
 
 [node name="PixilFrame0" type="Sprite2D" parent="."]
@@ -15,11 +19,27 @@ scale = Vector2(0.999077, 1)
 texture = ExtResource("1_ltewx")
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PixilFrame0"]
+position = Vector2(0.046195984, 0)
+scale = Vector2(1.0009239, 1)
 shape = SubResource("CircleShape2D_ilgfq")
 metadata/_edit_group_ = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CollisionShape2D"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PixilFrame0/CollisionShape2D"]
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="PixilFrame0"]
+visible = false
+position = Vector2(0.046195984, 0)
+scale = Vector2(1.0009239, 1)
 metadata/_edit_group_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("CircleShape2D_ltewx")
+debug_color = Color(0.9444711, 0.12229853, 0.509616, 0.41960785)
