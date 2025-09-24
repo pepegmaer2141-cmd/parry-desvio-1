@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bcbbmjt4uth7y"]
+
+[ext_resource type="Texture2D" uid="uid://flqulg0gjkvk" path="res://asssets/pixil-frame-0.png" id="1_ltewx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ilgfq"]
+radius = 30.0
+
+[node name="nave" type="CharacterBody2D"]
+
+[node name="PixilFrame0" type="Sprite2D" parent="."]
+position = Vector2(-0.046150208, -8.069159e-09)
+rotation = 6.2831855
+scale = Vector2(0.999077, 1)
+texture = ExtResource("1_ltewx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ilgfq")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CollisionShape2D"]
