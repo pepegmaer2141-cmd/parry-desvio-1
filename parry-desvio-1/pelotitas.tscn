@@ -10,7 +10,6 @@ bounce = 1.0
 size = Vector2(54.69615, 46.835434)
 
 [node name="bala" type="RigidBody2D"]
-position = Vector2(238, 196)
 scale = Vector2(1.8099997, 1.5799998)
 collision_layer = 2
 collision_mask = 2
@@ -23,8 +22,8 @@ angular_damp_mode = 1
 metadata/_edit_group_ = true
 
 [node name="colision pared" type="CollisionShape2D" parent="."]
-position = Vector2(0.27624893, -4.5776367e-05)
-scale = Vector2(0.4, 0.4)
+position = Vector2(0.27624512, -4.5776367e-05)
+scale = Vector2(0.20000002, 0.2)
 shape = SubResource("RectangleShape2D_16lm7")
 
 [node name="balas" type="Sprite2D" parent="."]
