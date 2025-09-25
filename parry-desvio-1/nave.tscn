@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bcbbmjt4uth7y"]
+[gd_scene load_steps=7 format=3 uid="uid://bcbbmjt4uth7y"]
 
 [ext_resource type="Texture2D" uid="uid://c3p3cpfv6sqea" path="res://asssets/circulo.png" id="1_j1vys"]
 [ext_resource type="Texture2D" uid="uid://flqulg0gjkvk" path="res://asssets/pixil-frame-0.png" id="1_ltewx"]
@@ -7,29 +7,19 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ilgfq"]
 size = Vector2(39.856, 24)
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_jemat"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_jemat"]
-radius = 25.079872
-
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ilgfq"]
 friction = 0.0
 bounce = 1.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_j1vys"]
-radius = 10.049875
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_j1vys"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_53dx7"]
-size = Vector2(458, 67)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j1vys"]
+size = Vector2(76.24312, 70.88608)
 
 [node name="juego" type="Node2D"]
 position = Vector2(257, -251)
 metadata/_edit_vertical_guides_ = [-360.0]
 
 [node name="circulo exterior" type="StaticBody2D" parent="."]
-position = Vector2(-622, -53)
+position = Vector2(-153, -45)
 collision_layer = 3
 collision_mask = 2
 metadata/_edit_group_ = true
@@ -49,7 +39,7 @@ metadata/_edit_group_ = true
 
 [node name="nave" type="Sprite2D" parent="."]
 top_level = true
-position = Vector2(151.99997, -293.00003)
+position = Vector2(114, -301.00003)
 scale = Vector2(1.9509876, 2.0646522)
 texture = ExtResource("1_ltewx")
 metadata/_edit_group_ = true
@@ -67,42 +57,24 @@ position = Vector2(0.046195984, 0)
 scale = Vector2(1.0009239, 1)
 metadata/_edit_group_ = true
 
-[node name="balas" type="Sprite2D" parent="."]
-position = Vector2(-129.00002, -238.99998)
-scale = Vector2(1.81, 1.58)
-texture = ExtResource("2_ilgfq")
-metadata/_edit_group_ = true
-
-[node name="colision parry" type="RigidBody2D" parent="balas"]
-position = Vector2(-7.1525574e-06, 7.2717667e-06)
-collision_layer = 257
-collision_mask = 257
-physics_material_override = SubResource("PhysicsMaterial_jemat")
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="balas/colision parry"]
-shape = SubResource("CircleShape2D_jemat")
-debug_color = Color(0.79909915, 0.15839079, 0.9428275, 0.41960785)
-
-[node name="colision pared" type="RigidBody2D" parent="balas"]
-scale = Vector2(0.9999999, 0.9999998)
+[node name="colision pared" type="RigidBody2D" parent="."]
+position = Vector2(-65, -87)
+scale = Vector2(1.8099997, 1.5799998)
 collision_layer = 2
 collision_mask = 2
 mass = 0.001
 physics_material_override = SubResource("PhysicsMaterial_ilgfq")
-gravity_scale = 1.246
+gravity_scale = 0.0
+linear_velocity = Vector2(0, 1000)
+linear_damp_mode = 1
+angular_damp_mode = 1
 metadata/_edit_group_ = true
 
-[node name="colision pared" type="CollisionShape2D" parent="balas/colision pared"]
-shape = SubResource("CircleShape2D_j1vys")
+[node name="colision pared" type="CollisionShape2D" parent="colision pared"]
+position = Vector2(2.7624283, 1.2658234)
+shape = SubResource("RectangleShape2D_j1vys")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(-81, 84)
-collision_layer = 271
-collision_mask = 263
-physics_material_override = SubResource("PhysicsMaterial_j1vys")
+[node name="balas" type="Sprite2D" parent="colision pared"]
+scale = Vector2(1.0000001, 1.0000002)
+texture = ExtResource("2_ilgfq")
 metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(60, 23.5)
-shape = SubResource("RectangleShape2D_53dx7")
