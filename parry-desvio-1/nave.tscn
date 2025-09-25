@@ -81,3 +81,6 @@ shape = SubResource("RectangleShape2D_j1vys")
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("2_ilgfq")
 metadata/_edit_group_ = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
