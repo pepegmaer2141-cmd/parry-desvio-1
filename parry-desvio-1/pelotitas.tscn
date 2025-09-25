@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://ssvfnwe62cc3"]
+[gd_scene load_steps=4 format=3 uid="uid://d2exeal8xh64w"]
 
 [ext_resource type="Texture2D" uid="uid://cfx8mi0beusxs" path="res://asssets/pixil-frame-0 (1).png" id="1_obrw4"]
 
@@ -6,18 +6,28 @@
 friction = 0.0
 bounce = 1.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_obrw4"]
-radius = 37.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_16lm7"]
+size = Vector2(54.69615, 46.835434)
 
-[node name="pelotitas" type="CharacterBody2D"]
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_obrw4")
-
-[node name="RigidBody2D" type="RigidBody2D" parent="Sprite2D"]
+[node name="bala" type="RigidBody2D"]
+position = Vector2(238, 196)
+scale = Vector2(1.8099997, 1.5799998)
+collision_layer = 2
+collision_mask = 2
 mass = 0.001
 physics_material_override = SubResource("PhysicsMaterial_j5r06")
+gravity_scale = 0.0
+linear_velocity = Vector2(0, 1000)
+linear_damp_mode = 1
+angular_damp_mode = 1
+metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/RigidBody2D"]
-shape = SubResource("CircleShape2D_obrw4")
+[node name="colision pared" type="CollisionShape2D" parent="."]
+position = Vector2(0.27624893, -4.5776367e-05)
+scale = Vector2(0.4, 0.4)
+shape = SubResource("RectangleShape2D_16lm7")
+
+[node name="balas" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_obrw4")
+metadata/_edit_group_ = true

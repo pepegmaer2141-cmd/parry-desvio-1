@@ -108,6 +108,6 @@ metadata/_edit_group_ = true
 
 [node name="animacion parry" type="AnimatedSprite2D" parent="."]
 position = Vector2(-178, -67)
-scale = Vector2(3, 3)
+scale = Vector2(3, 2.9999998)
 sprite_frames = SubResource("SpriteFrames_gi7du")
-frame_progress = 0.21127793
+frame_progress = 0.8483479
