@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://bcbbmjt4uth7y"]
+[gd_scene load_steps=11 format=3 uid="uid://bcbbmjt4uth7y"]
 
 [ext_resource type="Texture2D" uid="uid://c3p3cpfv6sqea" path="res://asssets/circulo.png" id="1_j1vys"]
 [ext_resource type="Texture2D" uid="uid://flqulg0gjkvk" path="res://asssets/pixil-frame-0.png" id="1_ltewx"]
-[ext_resource type="Texture2D" uid="uid://cfx8mi0beusxs" path="res://asssets/pixil-frame-0 (1).png" id="2_ilgfq"]
+[ext_resource type="Script" uid="uid://tc5i8brpe5up" path="res://scrip q spawnea balas.gd" id="1_xrwbh"]
+[ext_resource type="PackedScene" uid="uid://d2exeal8xh64w" path="res://pelotitas.tscn" id="2_ij32g"]
 [ext_resource type="Texture2D" uid="uid://bmwpc5clp0eox" path="res://asssets/parry animation/pixil-frame-0.png" id="4_1poy6"]
 [ext_resource type="Texture2D" uid="uid://ci0x0wnexbsvh" path="res://asssets/parry animation/pixil-frame-1.png" id="5_xqbh8"]
 [ext_resource type="Texture2D" uid="uid://2sy6issnf53g" path="res://asssets/parry animation/pixil-frame-2.png" id="6_xrwbh"]
@@ -10,13 +11,6 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ilgfq"]
 size = Vector2(39.856, 24)
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ilgfq"]
-friction = 0.0
-bounce = 1.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_j1vys"]
-size = Vector2(54.69615, 46.835434)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_gi7du"]
 animations = [{
@@ -83,31 +77,24 @@ position = Vector2(0.046195984, 0)
 scale = Vector2(1.0009239, 1)
 metadata/_edit_group_ = true
 
-[node name="bala" type="RigidBody2D" parent="."]
-position = Vector2(-334, -151)
-scale = Vector2(1.8099997, 1.5799998)
-collision_layer = 2
-collision_mask = 2
-mass = 0.001
-physics_material_override = SubResource("PhysicsMaterial_ilgfq")
-gravity_scale = 0.0
-linear_velocity = Vector2(0, 1000)
-linear_damp_mode = 1
-angular_damp_mode = 1
-metadata/_edit_group_ = true
-
-[node name="colision pared" type="CollisionShape2D" parent="bala"]
-position = Vector2(0.27624893, -4.5776367e-05)
-scale = Vector2(0.4, 0.4)
-shape = SubResource("RectangleShape2D_j1vys")
-
-[node name="balas" type="Sprite2D" parent="bala"]
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("2_ilgfq")
-metadata/_edit_group_ = true
-
-[node name="animacion parry" type="AnimatedSprite2D" parent="."]
-position = Vector2(-178, -67)
-scale = Vector2(3, 2.9999998)
+[node name="animacion parry" type="AnimatedSprite2D" parent="nave"]
+position = Vector2(-12.814026, -10.655533)
+scale = Vector2(1.5376828, 1.453029)
 sprite_frames = SubResource("SpriteFrames_gi7du")
-frame_progress = 0.8483479
+frame_progress = 0.96251553
+metadata/_edit_group_ = true
+
+[node name="spawner" type="Node2D" parent="."]
+script = ExtResource("1_xrwbh")
+pelotitas_scene = ExtResource("2_ij32g")
+
+[node name="Timer" type="Timer" parent="spawner"]
+wait_time = 3.0
+autostart = true
+ignore_time_scale = true
+
+[node name="spawn" type="Marker2D" parent="spawner"]
+position = Vector2(-349, -262)
+gizmo_extents = 30.0
+
+[connection signal="timeout" from="spawner/Timer" to="spawner" method="_on_timer_timeout"]
