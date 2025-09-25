@@ -1,8 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://bcbbmjt4uth7y"]
+[gd_scene load_steps=12 format=3 uid="uid://bcbbmjt4uth7y"]
 
 [ext_resource type="Texture2D" uid="uid://c3p3cpfv6sqea" path="res://asssets/circulo.png" id="1_j1vys"]
 [ext_resource type="Texture2D" uid="uid://flqulg0gjkvk" path="res://asssets/pixil-frame-0.png" id="1_ltewx"]
 [ext_resource type="Texture2D" uid="uid://cfx8mi0beusxs" path="res://asssets/pixil-frame-0 (1).png" id="2_ilgfq"]
+[ext_resource type="Texture2D" uid="uid://bmwpc5clp0eox" path="res://asssets/parry animation/pixil-frame-0.png" id="4_1poy6"]
+[ext_resource type="Texture2D" uid="uid://ci0x0wnexbsvh" path="res://asssets/parry animation/pixil-frame-1.png" id="5_xqbh8"]
+[ext_resource type="Texture2D" uid="uid://2sy6issnf53g" path="res://asssets/parry animation/pixil-frame-2.png" id="6_xrwbh"]
+[ext_resource type="Texture2D" uid="uid://cjlen32mxqmnh" path="res://asssets/parry animation/pixil-frame-3.png" id="7_ij32g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ilgfq"]
 size = Vector2(39.856, 24)
@@ -13,6 +17,26 @@ bounce = 1.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j1vys"]
 size = Vector2(54.69615, 46.835434)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gi7du"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_1poy6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_xqbh8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_xrwbh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ij32g")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
 
 [node name="juego" type="Node2D"]
 position = Vector2(257, -251)
@@ -82,5 +106,8 @@ scale = Vector2(0.2, 0.2)
 texture = ExtResource("2_ilgfq")
 metadata/_edit_group_ = true
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 3.0
+[node name="animacion parry" type="AnimatedSprite2D" parent="."]
+position = Vector2(-178, -67)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_gi7du")
+frame_progress = 0.21127793
