@@ -1,0 +1,26 @@
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://bljn21l4i74lx"]
+
+[ext_resource type="Texture2D" uid="uid://bmwpc5clp0eox" path="res://asssets/parry animation/pixil-frame-0.png" id="1_4fslr"]
+[ext_resource type="Texture2D" uid="uid://ci0x0wnexbsvh" path="res://asssets/parry animation/pixil-frame-1.png" id="2_iy4dg"]
+[ext_resource type="Texture2D" uid="uid://2sy6issnf53g" path="res://asssets/parry animation/pixil-frame-2.png" id="3_o7x65"]
+[ext_resource type="Texture2D" uid="uid://cjlen32mxqmnh" path="res://asssets/parry animation/pixil-frame-3.png" id="4_pm11e"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_4fslr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_iy4dg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_o7x65")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_pm11e")
+}],
+"loop": true,
+"name": &"parry",
+"speed": 5.0
+}]

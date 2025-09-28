@@ -12,11 +12,11 @@ size = Vector2(54.69615, 46.835434)
 [node name="bala" type="RigidBody2D"]
 scale = Vector2(1.8099997, 1.5799998)
 collision_layer = 2
-collision_mask = 2
 mass = 0.001
 physics_material_override = SubResource("PhysicsMaterial_j5r06")
 gravity_scale = 0.0
-linear_velocity = Vector2(0, 500)
+lock_rotation = true
+linear_velocity = Vector2(0, 300)
 linear_damp_mode = 1
 angular_damp_mode = 1
 metadata/_edit_group_ = true
